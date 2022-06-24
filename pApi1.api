@@ -1,0 +1,26 @@
+syntax = "v1"
+
+info(
+	title: "API"
+	desc: "API"
+	author: "Paul"
+	email: "paul@miaoshitech.com"
+	version: "V1.0.0"
+)
+
+type PingPeq {}
+
+type PingRes {
+	Code int64 `json:"code"`
+}
+
+@server(
+	group: test
+)
+service PApi1 {
+	@doc(
+		summary: "测试"
+	)
+	@handler testApi
+	post /test (PingPeq) returns (PingRes)
+}
