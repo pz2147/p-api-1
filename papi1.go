@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"p-api-1/internal/config"
-	"p-api-1/internal/handler"
-	"p-api-1/internal/svc"
+	"github.com/pz2147/p-api-1/internal/config"
+	"github.com/pz2147/p-api-1/internal/handler"
+	"github.com/pz2147/p-api-1/internal/svc"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/rest"

@@ -3,10 +3,10 @@ package test
 import (
 	"net/http"
 
+	"github.com/pz2147/p-api-1/internal/logic/test"
+	"github.com/pz2147/p-api-1/internal/svc"
+	"github.com/pz2147/p-api-1/internal/types"
 	"github.com/tal-tech/go-zero/rest/httpx"
-	"p-api-1/internal/logic/test"
-	"p-api-1/internal/svc"
-	"p-api-1/internal/types"
 )
 
 func TestApiHandler(ctx *svc.ServiceContext) http.HandlerFunc {

@@ -4,8 +4,8 @@ package handler
 import (
 	"net/http"
 
-	test "p-api-1/internal/handler/test"
-	"p-api-1/internal/svc"
+	test "github.com/pz2147/p-api-1/internal/handler/test"
+	"github.com/pz2147/p-api-1/internal/svc"
 
 	"github.com/tal-tech/go-zero/rest"
 )

@@ -1,4 +1,4 @@
-module p-api-1
+module github.com/pz2147/p-api-1
 
 go 1.16
 
