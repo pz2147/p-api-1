@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"p-api-1/internal/config"
+	"github.com/pz2147/p-api-1/internal/config"
 )
 
 type ServiceContext struct {
