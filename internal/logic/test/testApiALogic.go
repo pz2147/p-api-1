@@ -11,35 +11,32 @@ import (
 	"github.com/tal-tech/go-zero/core/logx"
 )
 
-type TestApiLogic struct {
+type TestApiALogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewTestApiLogic(ctx context.Context, svcCtx *svc.ServiceContext) TestApiLogic {
-	return TestApiLogic{
+func NewTestApiALogic(ctx context.Context, svcCtx *svc.ServiceContext) TestApiALogic {
+	return TestApiALogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *TestApiLogic) TestApi(req types.PingPeq) (resp *types.PingRes, err error) {
+func (l *TestApiALogic) TestApiA(req types.PingPeq) (resp *types.PingRes, err error) {
 
-	logx.Infof("[TestApi] TestApi start")
+	logx.Infof("[TestApiA] TestApiA start")
 
-	test1, rpcErr := l.svcCtx.PRpc1.Test1(l.ctx, &prpc1client.Test1Req{
+	test2, rpcErr := l.svcCtx.PRpc1.Test2(l.ctx, &prpc1client.Test2Req{
 		RInt: 1111,
 		RStr: "2222",
-		RMap: &prpc1client.Test1CellModel{
-			Cp: "sdsd",
-		},
 	})
 	if rpcErr != nil {
 		logx.Errorf("[TestApi] 错误 %s", rpcErr)
 		return nil, err
-	} else if test1 == nil {
+	} else if test2 == nil {
 		logx.Errorf("[TestApi] 返回为空")
 		return nil, errors.New("返回为空")
 	}

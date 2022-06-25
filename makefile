@@ -14,7 +14,7 @@ tidy:
 
 # goctl 快捷命令
 goctl-api:
-	 goctl api go -api ${SERVICE_FILE_NAME}.api -dir . -style goZero
+	 goctl api plugin -p goctl-go-compact -api ${SERVICE_FILE_NAME}.api -dir . -style goZero
 
 
 swagger:

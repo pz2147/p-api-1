@@ -18,9 +18,15 @@ type PingRes {
 	group: test
 )
 service PApi1 {
-	@doc(
-		summary: "测试"
-	)
+	@doc "测试"
 	@handler testApi
-	post /test (PingPeq) returns (PingRes)
+	get /test (PingPeq) returns (PingRes)
+	
+	@doc "测试a"
+	@handler testApiA
+	get /test/a (PingPeq) returns (PingRes)
+	
+	@doc "测试b"
+	@handler testApiB
+	post /test/b (PingPeq) returns (PingRes)
 }
