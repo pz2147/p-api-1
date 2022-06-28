@@ -1,6 +1,7 @@
 Name: PApi1
 Host: 0.0.0.0
 Port: 8888
+timeout: 6000
 
 
 PRpc1:

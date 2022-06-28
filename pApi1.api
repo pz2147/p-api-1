@@ -63,6 +63,7 @@ type UserinfoResp {
 
 @server(
 	group: user
+	middleware: Gateway
 )
 service PApi1 {
 	@doc "user登录"
