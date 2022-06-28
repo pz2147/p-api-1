@@ -16,14 +16,11 @@ tidy:
 goctl-api:
 	 goctl api plugin -p goctl-go-compact -api ${SERVICE_FILE_NAME}.api -dir . -style goZero
 
-
 swagger:
 	goctl api plugin -plugin goctl-swagger="swagger -filename docs/${SERVICE_PREFIX}.json" -api api/${SERVICE_FILE_NAME}.api -dir .
 
 swagger-file:
 	@echo docs/${SERVICE_PREFIX}.json
-
-
 
 test-rpc:
 	go test ./rpc/test -v

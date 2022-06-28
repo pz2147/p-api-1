@@ -30,3 +30,50 @@ service PApi1 {
 	@handler testApiB
 	post /test/b (PingPeq) returns (PingRes)
 }
+
+// LoginReq 登录接口
+type LoginReq {
+	Phone    string `json:"phone"`
+	Password string `json:"password"`
+}
+
+// LoginResp 登录解析
+type LoginResp {
+	Uid      string `json:"uid"`
+	Nickname string `json:"nickname"`
+	Pic      string `json:"pic"`
+}
+
+// LogoutResp 登出解析
+type LogoutResp {
+	IsSuc bool `json:"is_suc"`
+}
+
+// UidReq 用户uid的请求
+type UidReq {
+	Uid string `json:"uid"`
+}
+
+// UserinfoResp 用户信息返回
+type UserinfoResp {
+	Uid      string `json:"uid"`
+	Nickname string `json:"nickname"`
+	Pic      string `json:"pic"`
+}
+
+@server(
+	group: user
+)
+service PApi1 {
+	@doc "user登录"
+	@handler userLogin
+	post /user/login (LoginReq) returns (LoginResp)
+	
+	@doc "user登出"
+	@handler userLogout
+	post /user/logout (UidReq) returns (LogoutResp)
+	
+	@doc "user登录"
+	@handler userInfo
+	get /user/:id (UidReq) returns (UserinfoResp)
+}

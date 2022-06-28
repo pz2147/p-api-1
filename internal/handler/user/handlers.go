@@ -1,24 +1,25 @@
 package handler
 
 import (
-	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
 
-	"github.com/pz2147/p-api-1/internal/logic/test"
+	"github.com/pz2147/p-api-1/internal/logic/user"
 	"github.com/pz2147/p-api-1/internal/svc"
 	"github.com/pz2147/p-api-1/internal/types"
+
+	"github.com/tal-tech/go-zero/rest/httpx"
 )
 
-func TestApiHandler(ctx *svc.ServiceContext) http.HandlerFunc {
+func UserLoginHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.PingPeq
+		var req types.LoginReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := test.NewTestApiLogic(r.Context(), ctx)
-		resp, err := l.TestApi(req)
+		l := user.NewUserLoginLogic(r.Context(), ctx)
+		resp, err := l.UserLogin(req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {
@@ -27,16 +28,16 @@ func TestApiHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	}
 }
 
-func TestApiAHandler(ctx *svc.ServiceContext) http.HandlerFunc {
+func UserLogoutHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.PingPeq
+		var req types.UidReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := test.NewTestApiALogic(r.Context(), ctx)
-		resp, err := l.TestApiA(req)
+		l := user.NewUserLogoutLogic(r.Context(), ctx)
+		resp, err := l.UserLogout(req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {
@@ -45,16 +46,16 @@ func TestApiAHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	}
 }
 
-func TestApiBHandler(ctx *svc.ServiceContext) http.HandlerFunc {
+func UserInfoHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.PingPeq
+		var req types.UidReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := test.NewTestApiBLogic(r.Context(), ctx)
-		resp, err := l.TestApiB(req)
+		l := user.NewUserInfoLogic(r.Context(), ctx)
+		resp, err := l.UserInfo(req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {
@@ -62,5 +63,3 @@ func TestApiBHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 		}
 	}
 }
-
-

@@ -2,11 +2,13 @@
 package handler
 
 import (
-	"github.com/tal-tech/go-zero/rest"
 	"net/http"
 
 	test "github.com/pz2147/p-api-1/internal/handler/test"
+	user "github.com/pz2147/p-api-1/internal/handler/user"
 	"github.com/pz2147/p-api-1/internal/svc"
+
+	"github.com/tal-tech/go-zero/rest"
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
@@ -26,6 +28,26 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Method:  http.MethodPost,
 				Path:    "/test/b",
 				Handler: test.TestApiBHandler(serverCtx),
+			},
+		},
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/login",
+				Handler: user.UserLoginHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/logout",
+				Handler: user.UserLogoutHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/user/:id",
+				Handler: user.UserInfoHandler(serverCtx),
 			},
 		},
 	)

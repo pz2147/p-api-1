@@ -9,6 +9,7 @@ import (
 type ServiceContext struct {
 	Config config.Config
 	PRpc1  prpc1client.PRpc1
+
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {

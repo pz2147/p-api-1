@@ -7,3 +7,28 @@ type PingPeq struct {
 type PingRes struct {
 	Code int64 `json:"code"`
 }
+
+type LoginReq struct {
+	Phone    string `json:"phone"`
+	Password string `json:"password"`
+}
+
+type LoginResp struct {
+	Uid      string `json:"uid"`
+	Nickname string `json:"nickname"`
+	Pic      string `json:"pic"`
+}
+
+type LogoutResp struct {
+	IsSuc bool `json:"is_suc"`
+}
+
+type UidReq struct {
+	Uid string `json:"uid"`
+}
+
+type UserinfoResp struct {
+	Uid      string `json:"uid"`
+	Nickname string `json:"nickname"`
+	Pic      string `json:"pic"`
+}
