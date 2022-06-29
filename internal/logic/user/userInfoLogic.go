@@ -1,4 +1,4 @@
-package test
+package user
 
 import (
 	"context"
@@ -9,21 +9,21 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type TestApiLogic struct {
+type UserInfoLogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewTestApiLogic(ctx context.Context, svcCtx *svc.ServiceContext) TestApiLogic {
-	return TestApiLogic{
+func NewUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) UserInfoLogic {
+	return UserInfoLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *TestApiLogic) TestApi(req types.PingPeq) (resp *types.PingRes, err error) {
+func (l *UserInfoLogic) UserInfo(req types.UidReq) (resp *types.UserinfoResp, err error) {
 
 	return
 }

@@ -9,21 +9,22 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type TestApiLogic struct {
+type TestApiALogic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewTestApiLogic(ctx context.Context, svcCtx *svc.ServiceContext) TestApiLogic {
-	return TestApiLogic{
+func NewTestApiALogic(ctx context.Context, svcCtx *svc.ServiceContext) TestApiALogic {
+	return TestApiALogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *TestApiLogic) TestApi(req types.PingPeq) (resp *types.PingRes, err error) {
+func (l *TestApiALogic) TestApiA(req types.PingPeq) (resp *types.PingRes, err error) {
+
 
 	return
 }

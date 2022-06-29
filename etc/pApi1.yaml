@@ -1,3 +1,27 @@
 Name: PApi1
 Host: 0.0.0.0
 Port: 8888
+timeout: 6000
+
+
+PRpc1:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: prpc1.rpc
+  Timeout: 6000
+
+Telemetry:
+  Name:
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger
+
+EsConfig:
+  Addresses:
+    - http://127.0.0.1:9200
+  ConfigPath: ../../esconfig
+  Indexes:
+    - sensitive_word_log
+  Username:
+  Password:
