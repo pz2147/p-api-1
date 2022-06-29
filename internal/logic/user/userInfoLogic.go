@@ -6,7 +6,7 @@ import (
 	"github.com/pz2147/p-api-1/internal/svc"
 	"github.com/pz2147/p-api-1/internal/types"
 
-	"github.com/tal-tech/go-zero/core/logx"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 type UserInfoLogic struct {
@@ -24,7 +24,6 @@ func NewUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) UserInfoL
 }
 
 func (l *UserInfoLogic) UserInfo(req types.UidReq) (resp *types.UserinfoResp, err error) {
-	// todo: add your logic here and delete this line
 
 	return
 }

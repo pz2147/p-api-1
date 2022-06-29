@@ -2,12 +2,13 @@
 package handler
 
 import (
-	"github.com/tal-tech/go-zero/rest"
 	"net/http"
 
 	test "github.com/pz2147/p-api-1/internal/handler/test"
 	user "github.com/pz2147/p-api-1/internal/handler/user"
 	"github.com/pz2147/p-api-1/internal/svc"
+
+	"github.com/zeromicro/go-zero/rest"
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {

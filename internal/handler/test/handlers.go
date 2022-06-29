@@ -1,12 +1,13 @@
 package handler
 
 import (
-	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
 
 	"github.com/pz2147/p-api-1/internal/logic/test"
 	"github.com/pz2147/p-api-1/internal/svc"
 	"github.com/pz2147/p-api-1/internal/types"
+
+	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 func TestApiHandler(ctx *svc.ServiceContext) http.HandlerFunc {
@@ -62,6 +63,4 @@ func TestApiBHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 		}
 	}
 }
-
-
 

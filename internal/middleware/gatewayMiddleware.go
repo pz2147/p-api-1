@@ -3,7 +3,7 @@ package middleware
 import (
 	"fmt"
 
-	gzTrace "github.com/tal-tech/go-zero/core/trace"
+	gzTrace "github.com/zeromicro/go-zero/core/trace"
 	"go.opentelemetry.io/otel/trace"
 	"net/http"
 )
@@ -43,6 +43,7 @@ func (m *GatewayMiddleware) Handle(next http.HandlerFunc) http.HandlerFunc {
 
 		//r.Header.Get("device-type"),
 		// Passthrough to next handler if need
+
 		next(w, r)
 	}
 }
