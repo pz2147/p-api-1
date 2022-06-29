@@ -14,17 +14,24 @@ type LoginReq struct {
 }
 
 type LoginResp struct {
-	Uid      string `json:"uid"`
-	Nickname string `json:"nickname"`
-	Pic      string `json:"pic"`
+	Uid          string `json:"uid"`
+	Nickname     string `json:"nickname"`
+	Pic          string `json:"pic"`
+	AccessToken  string `json:"access_token"`
+	AccessExpire int64  `json:"access_expire"`
+	RefreshAfter int64  `json:"refresh_after"` // 建议客户端刷新token的绝对时间
+}
+
+type LogoutReq struct {
+	Uid string `json:"uid"`
 }
 
 type LogoutResp struct {
 	IsSuc bool `json:"is_suc"`
 }
 
-type UidReq struct {
-	Uid string `json:"uid"`
+type UserInfoReq struct {
+	Uid string `path:"uid"`
 }
 
 type UserinfoResp struct {

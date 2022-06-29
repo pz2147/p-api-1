@@ -11,6 +11,12 @@ PRpc1:
     Key: prpc1.rpc
   Timeout: 6000
 
+#错误配置
+ErrorConf:
+  Lang: en
+  Path: ../i18n
+  HeaderKey: Language
+
 Telemetry:
   Name:
   Endpoint: http://127.0.0.1:14268/api/traces

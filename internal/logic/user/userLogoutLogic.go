@@ -23,7 +23,7 @@ func NewUserLogoutLogic(ctx context.Context, svcCtx *svc.ServiceContext) UserLog
 	}
 }
 
-func (l *UserLogoutLogic) UserLogout(req types.UidReq) (resp *types.LogoutResp, err error) {
+func (l *UserLogoutLogic) UserLogout(req types.LogoutReq) (resp *types.LogoutResp, err error) {
 	// todo: add your logic here and delete this line
 
 	return

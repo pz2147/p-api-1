@@ -14,23 +14,6 @@ type PingRes {
 	Code int64 `json:"code"`
 }
 
-@server(
-	group: test
-)
-service PApi1 {
-	@doc "测试"
-	@handler testApi
-	get /test (PingPeq) returns (PingRes)
-	
-	@doc "测试a"
-	@handler testApiA
-	get /test/a (PingPeq) returns (PingRes)
-	
-	@doc "测试b"
-	@handler testApiB
-	post /test/b (PingPeq) returns (PingRes)
-}
-
 // LoginReq 登录接口
 type LoginReq {
 	Phone    string `json:"phone"`
@@ -39,9 +22,17 @@ type LoginReq {
 
 // LoginResp 登录解析
 type LoginResp {
-	Uid      string `json:"uid"`
-	Nickname string `json:"nickname"`
-	Pic      string `json:"pic"`
+	Uid          string `json:"uid"`
+	Nickname     string `json:"nickname"`
+	Pic          string `json:"pic"`
+	AccessToken  string `json:"access_token"`
+	AccessExpire int64  `json:"access_expire"`
+	RefreshAfter int64  `json:"refresh_after"` // 建议客户端刷新token的绝对时间
+}
+
+// UidReq 用户uid的请求
+type LogoutReq {
+	Uid string `json:"uid"`
 }
 
 // LogoutResp 登出解析
@@ -50,8 +41,8 @@ type LogoutResp {
 }
 
 // UidReq 用户uid的请求
-type UidReq {
-	Uid string `json:"uid"`
+type UserInfoReq {
+	Uid string `path:"uid"`
 }
 
 // UserinfoResp 用户信息返回
@@ -72,9 +63,9 @@ service PApi1 {
 	
 	@doc "user登出"
 	@handler userLogout
-	post /user/logout (UidReq) returns (LogoutResp)
+	post /user/logout (LogoutReq) returns (LogoutResp)
 	
-	@doc "user登录"
+	@doc "user信息"
 	@handler userInfo
-	get /user/:id (UidReq) returns (UserinfoResp)
+	get /user/:uid (UserInfoReq) returns (UserinfoResp)
 }

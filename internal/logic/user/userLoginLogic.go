@@ -33,7 +33,7 @@ func (l *UserLoginLogic) UserLogin(req types.LoginReq) (resp *types.LoginResp, e
 		return nil, errors.New("参数错误")
 	}
 
-	login, lErr := l.svcCtx.PRpc1.Login(l.ctx, &prpc1client.AuthReq{
+	lResp, lErr := l.svcCtx.PRpc1.Login(l.ctx, &prpc1client.AuthReq{
 		Phone:    phone,
 		Password: password,
 	})
@@ -45,8 +45,11 @@ func (l *UserLoginLogic) UserLogin(req types.LoginReq) (resp *types.LoginResp, e
 	l.Logger.Infof("%s %s", phone, password)
 
 	return &types.LoginResp{
-		Uid:      login.GetUid(),
-		Nickname: login.GetNickname(),
-		Pic:      login.GetPic(),
+		Uid:          lResp.GetUid(),
+		Nickname:     lResp.GetNickname(),
+		Pic:          lResp.GetPic(),
+		AccessToken:  lResp.GetAccessToken(),
+		AccessExpire: lResp.GetAccessExpire(),
+		RefreshAfter: lResp.GetRefreshAfter(),
 	}, nil
 }
